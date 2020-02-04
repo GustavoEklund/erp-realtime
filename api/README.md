@@ -3,7 +3,7 @@
 ## Como baixar o projeto
 
 1. Acesse o link:
-    > [Azure - Gustavo Eklund - git](https://gustavocfranca@dev.azure.com/gustavocfranca/erp-realtime/_git/erp-realtime)
+    > [Azure - Gustavo Eklund - git](https://dev.azure.com/gustavocfranca/_git/erp-realtime)
 
 2. Clique em "Clone"
 
