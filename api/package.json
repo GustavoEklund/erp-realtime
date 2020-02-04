@@ -1,0 +1,55 @@
+{
+ "name": "erp-realtime",
+ "version": "02.20.1.0.0",
+ "description": "Sistema ERP Realtime com PDV e Cardapio Digital.",
+ "keywords": [
+  "erp",
+  "pdv",
+  "realtime",
+  "node.js",
+  "react.js"
+ ],
+ "homepage": "https://github.com/GustavoEklund/erp-realtime",
+ "bugs": {
+  "url": "https://github.com/GustavoEklund/erp-realtime/issues",
+  "email": "gustavo04616@gmail.com"
+ },
+ "license": "CC-BY-NC-ND-4.0",
+ "main": "src/server.js",
+ "author": {
+  "name": "Gustavo Eklund",
+  "email": "gustavo04616@gmail.com",
+  "url": "https://github.com/GustavoEklund"
+ },
+ "repository": {
+  "type": "git",
+  "url": "https://gustavocfranca@dev.azure.com/gustavocfranca/erp-realtime/_git/erp-realtime"
+ },
+ "scripts": {
+  "dev:server": "nodemon src/server.js"
+ },
+ "engines": {
+  "node": ">=12.13.1"
+ },
+ "private": false,
+ "dependencies": {
+  "dotenv": "^8.2.0",
+  "express": "^4.17.1",
+  "jsonwebtoken": "^8.5.1",
+  "pg": "^7.18.1",
+  "pg-hstore": "^2.3.3",
+  "sequelize": "^5.21.3",
+  "socket.io": "^2.3.0"
+ },
+ "devDependencies": {
+  "eslint": "^6.8.0",
+  "eslint-config-standard": "^14.1.0",
+  "eslint-plugin-import": "^2.20.1",
+  "eslint-plugin-node": "^11.0.0",
+  "eslint-plugin-promise": "^4.2.1",
+  "eslint-plugin-standard": "^4.0.1",
+  "nodemon": "^2.0.2",
+  "sequelize-cli": "^5.5.1",
+  "sucrase": "^3.12.1"
+ }
+}
