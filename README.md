@@ -1,68 +1,142 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ERP Realtime
 
-## Available Scripts
+## Como baixar o projeto
 
-In the project directory, you can run:
+1. Antes de começar, certifique-se de ter o [git](https://git-scm.com/downloads) instalado.
 
-### `yarn start`
+2. Acesse o link:
+    > [Azure - Gustavo Eklund - git](https://dev.azure.com/gustavocfranca/_git/erp-realtime)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. Clique em `Clone`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+4. Copie a `URL HTTPS`
 
-### `yarn test`
+5. No terminal vá até o diretório onde desejar baixar o projeto e execute o comando:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ```bash
+    git init
+    ```
 
-### `yarn build`
+6. Em seguida o comando sem os parênteses:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```bash
+    git clone (url copiada)
+    ```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+7. Será solicitada uma senha de acesso, volte ao azure e clique em `Generate Credentialas` e use a senha gerada.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Como instalar o projeto
 
-### `yarn eject`
+1. Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/en/) instalado.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. Para instalar o projeto, no terminal, certifique-se de ter o [yarn](https://classic.yarnpkg.com/en/docs/install) instalado, e então vá até o diretório do projeto e execute o comando para instalar as dependências do projeto:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    yarn install
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. Para iniciar o projeto basta executar o comando:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    ```bash
+    yarn start
+    ```
 
-## Learn More
+4. Acesse o projeto pelo navegador através do link:
+    > [localhost:3000](http://localhost:3000)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. Ainda não será possível acessar o sistema pois ainda faltam as **Configurações da Api-Endpoint e do Banco de Dados** na próxima etapa.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Instalação do banco de dados
 
-### Code Splitting
+1. O banco de dados utilizado no projeto é o PostgreSQL. Caso ainda não o tenha instalado, você pode encontrar [aqui](https://www.postgresql.org/download/) o download de acordo com seu sistema operacional. A versão exigida para este projeto é a `psql ^9.6.16` ou superior.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+2. Após a instalação, será necessário realizar algumas configurações no terminal, se você estiver operando através do Windows, é recomendável utilizar o PowerShell, mas antes disso recomendamos reiniciar seu terminal para certificar-se de que as variáveis ambiente serão reconhecidas. Para certificar-se que a instalação ocorreu com sucesso execute o comando:
 
-### Analyzing the Bundle Size
+    ```bash
+    psql --version
+    ```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+3. Em seguida, execute o comando:
+    * No Windows:
 
-### Making a Progressive Web App
+    ```bash
+    psql -U postgres
+    ```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+    * No Linux:
 
-### Advanced Configuration
+    ```bash
+    sudo -u postgres psql postgres
+    ```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+    * no MacOS:
 
-### Deployment
+    ```bash
+    psql postgres
+    ```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+    > Ao executar o comando, seu terminal deve estar da seguinte forma:
 
-### `yarn build` fails to minify
+    ```psql
+    psql (9.6.16)
+    Type "help" for help.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+    postgres=#
+    ```
+
+4. Note que agora você está no terminal `psql` conectado com o super usuário `postgres`, mas que ainda não tem uma senha de acesso, para defini-la, use o comando:
+
+    ```psql
+    \password postgres
+    ```
+
+    > Ao executar o comando será solicitada uma senha `Enter new password:`, então basta digitá-la e pressionar enter, em seguida confirme a senha `Enter it again:`.
+    > Caso deseje sair do terminal `psql` basta usar o comando:
+
+    ```psql
+    \q
+    ```
+
+5. A instalação do banco de dados continua na próxima etapa utilizando o [Sequelize](https://sequelize.org/).
+
+## Configuração Api-Endpoint e Backend
+
+1. Vá até o diretório [./api](./api) localizado da raiz do projeto e execute novamente o comando para instalar as dependências do projeto:
+
+    ```bash
+    yarn install
+    ```
+
+2. As configurações do banco de dados estão no  diretório [./src/config/database.js](./src/config/database.js).
+Neste arquivo, observe os valores `proccess.env.DB_???`. Isso significa que são variáveis ambiente orquestradas pelo `Dotenv`. Verifique se os parâmetros de configuração são compatíveis com o seu ambiente de desenvolvimento, na raiz do projeto, o arquivo `.env.exemple` contém os valores das variáveis utilizadas na configuração do banco de dados, substitua os valores necessários, salve o arquivo e faça uma cópia do arquivo com o nome `.env`. Se tudo estiver pronto, crie o banco de dados usando o comando:
+
+    ```bash
+    yarn sequelize db:create
+    ```
+
+3. Todas as tabelas do banco de dados já estão configuradas no diretório [./src/database/migrations](./src/database/migrations), mas ainda não foram criadas no banco de dados que você acabou de instalar. Para criar as tabelas, use o comando:
+
+    ```bash
+    yarn sequelize db:migrate
+    ```
+
+4. Agora, basta iniciar o projeto:
+
+    ```bash
+    yarn dev:server
+    ```
+
+5. Você pode acessá-lo através do link
+    > [localhost:3333](http://localhost:3333)
+    > A seguinte mensagem deve ser exibida no navegador:
+
+    ```text
+    Cannot GET /
+    ```
+
+6. Agora o projeto está totalmente configurado e pronto para o desenvolvimento. Lembre-se sempre de iniciar os dois servidores pelo terminal em seus respectivos diretórios. No diretório raiz: `yarn start` e em [./api](./api) `yarn dev:server`.
+
+## Acesso
+
+1. Agora você já deve ser capaz de acessar o sistema em:
+    > [localhost:3000](http://localhost:3000)
