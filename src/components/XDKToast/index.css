@@ -1,0 +1,216 @@
+/* [~]=========================[~] */
+/* [~]===[ TOAST ANIMATION ]===[~] */
+/* [~]=========================[~] */
+.toast {
+  background-color: #DFDFDF;
+  overflow: hidden;
+  border-radius: 15px;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 1200;
+  min-width: 300px;
+  -webkit-box-shadow: 0 1px 6px 0px rgba(32, 33, 36, 0.28);
+          box-shadow: 0 1px 6px 0px rgba(32, 33, 36, 0.28);
+}
+
+.toast-enter {
+  -webkit-transform: translate(-50%, 200px);
+          transform: translate(-50%, 200px);
+}
+
+.toast-enter-active {
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  -webkit-transition: -webkit-transform 250ms cubic-bezier(0.3, 0.9, 0.3, 0.9);
+  transition: -webkit-transform 250ms cubic-bezier(0.3, 0.9, 0.3, 0.9);
+  transition: transform 250ms cubic-bezier(0.3, 0.9, 0.3, 0.9);
+  transition: transform 250ms cubic-bezier(0.3, 0.9, 0.3, 0.9), -webkit-transform 250ms cubic-bezier(0.3, 0.9, 0.3, 0.9);
+}
+
+.toast-exit {
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+
+.toast-exit-active {
+  -webkit-transform: translate(-50%, 200px);
+          transform: translate(-50%, 200px);
+  -webkit-transition: -webkit-transform 250ms ease-in;
+  transition: -webkit-transform 250ms ease-in;
+  transition: transform 250ms ease-in;
+  transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
+}
+
+/* [~]===============================[~] */
+/* [~]===[ TOAST TIMER ANIMATION ]===[~] */
+/* [~]===============================[~] */
+.toast-timer {
+  height: 6px;
+  background-color: #007bff;
+}
+
+.toast-timer-enter {
+  width: 0;
+}
+
+.toast-timer-enter-active {
+  width: 100%;
+}
+
+/* [~]========================[~] */
+/* [~]===[ TOAST GERNERAL ]===[~] */
+/* [~]========================[~] */
+.toast-wraper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 20px 15px 20px;
+}
+
+.toast-wraper > p {
+  width: 90%;
+}
+
+.toast-close-button {
+  position: absolute;
+  right: 0;
+  margin: 0 20px;
+  background-color: grey;
+  border: none;
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  -webkit-transition: background-color 300ms;
+  transition: background-color 300ms;
+}
+
+.toast-close-button:hover {
+  background-color: lightgrey;
+}
+
+.toast-message {
+  position: relative;
+  top: -10px;
+}
+
+/* [~]========================[~] */
+/* [~]===[ LOADER GENERAL ]===[~] */
+/* [~]========================[~] */
+.loader {
+  position: relative;
+  margin: 0 auto;
+  width: 30px;
+  display: inline-block;
+}
+
+.loader:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.circular {
+  -webkit-animation: rotate 1200ms linear infinite;
+          animation: rotate 1200ms linear infinite;
+  height: 100%;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+          animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+/* [~]==========================[~] */
+/* [~]===[ LOADER ANIMATION ]===[~] */
+/* [~]==========================[~] */
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@-webkit-keyframes color {
+  100%, 0% {
+    stroke: #d62d20;
+  }
+  40% {
+    stroke: #0057e7;
+  }
+  66% {
+    stroke: #008744;
+  }
+  80%, 90% {
+    stroke: #ffa700;
+  }
+}
+
+@keyframes color {
+  100%, 0% {
+    stroke: #d62d20;
+  }
+  40% {
+    stroke: #0057e7;
+  }
+  66% {
+    stroke: #008744;
+  }
+  80%, 90% {
+    stroke: #ffa700;
+  }
+}
+/*# sourceMappingURL=index.css.map */

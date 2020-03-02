@@ -21,7 +21,7 @@ const OptionController = {
 		const user = await User.findByPk(user_id)
 
 		if (!user) {
-			return response.status(400).json({ error: 'User not found'})
+			return response.status(400).json({ error: 'User not found' })
 		} // if
 
 		const option = await Option.create({

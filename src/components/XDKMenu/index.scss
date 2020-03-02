@@ -1,0 +1,137 @@
+div.hamburger-button {
+    position: fixed;
+    bottom: 3px;
+    right: 10vw;
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.3);
+    outline: none;
+    z-index: 1100;
+    color: #ffffff;
+    font-size: 20pt;
+    text-align: center;
+    padding-top: 11px;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+@media screen and (min-width: 768px) {
+	div.hamburger-button, div.menu-item {
+		right: 5vw;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	div.hamburger-button, div.menu-item {
+		display: none;
+		pointer-events: none;
+	}
+}
+
+div.hamburger-button:hover {
+    cursor: pointer;   
+}
+
+div.menu-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 300ms ease;
+	pointer-events: none;
+	z-index: 1000;
+}
+
+div.menu-overlay-active {
+    opacity: 1;
+    pointer-events: all;
+    backdrop-filter: blur(0.8);
+}
+
+div.menu-item {
+    position: fixed;
+    right: 11vw;
+    bottom: 7px;
+    width: 40px;
+    height: 40px;
+    z-index: 1050;
+    background-color: orange;
+    color: #ffffff;
+    text-align: center;
+    line-height: 100%;
+    border-radius: 50px;
+    border: none;
+    font-size: 20px;
+    outline: none;
+    box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.3);
+    transition: all 300ms cubic-bezier(0.3, 0.9, 0.3, 0.9);
+
+    &::before {
+        color: white;
+        position: absolute;
+        width: 200px;
+        height: 100%;
+        right: 0;
+        top: 0;
+        text-align: right;
+        padding-top: 12px;
+        padding-right: 50px;
+        box-sizing: border-box;
+    }
+
+    &:nth-child(1) {
+        padding-top: 10px;
+        margin-left: -2px;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (min-width: 768px) {
+	div.menu-item {
+		right: 6vw;
+	}
+}
+
+div.menu-item-1-active {
+    bottom: 80px;
+    &::before {
+        content: 'Início';
+    }
+}
+
+div.menu-item-2-active {
+	bottom: 145px;
+	opacity: .3;
+	cursor: 'pointer';
+
+    &::before {
+        content: 'Configurações';
+    }
+}
+
+div.menu-item-3-active {
+	bottom: 210px;
+    &::before {
+        content: 'Sair';
+    }
+}
+
+div.menu-item-4-active {
+    bottom: 380px;
+    &::before {
+        content: '';
+    }
+}
+
+div.menu-item-5-active {
+    bottom: 460px;
+    &::before {
+        content: '';
+    }
+}
